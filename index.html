@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Mi proyecto</title>
+        
+        <style>
+            
+            div{
+                
+                 background-color: grey;
+                 height:50px;
+                 
+            }
+            .logo{
+                background-color: pink;
+                float:left;
+                
+                
+            }
+            
+            .boton{
+                background-color: yellow;
+                float:right;
+                position:relative;
+                
+                
+               
+            }
+            
+            #despl{
+               
+                position:absolute;
+                right:0px;
+                top:50px;
+                height: 0px;
+                width: 250px;
+                background-color: red;
+                overflow: hidden;
+                transition: all 1000ms linear;
+               
+            }
+            
+            .boton:hover #despl{
+               
+                height:150px;
+               
+            }
+          
+        </style>
+    </head>
+    <body>
+        
+        <div> 
+        
+            <div class="logo">
+
+                LOGO
+
+            </div>
+        
+             <div class="boton"> 
+            
+                MENU
+                
+                    <div id="despl">
+                        MI MENU
+                     </div>
+            
+            </div>
+            
+        </div>
+       
+        
+        <script>
+            
+            
+        </script>    
+    </body>
+</html>

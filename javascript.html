@@ -1,0 +1,274 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>JS</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+      html, body, *, *::before, *::after
+      {
+        margin:  0;
+        padding: 0;
+        border:  0;
+        outline: 0;
+        vertical-align: baseline;
+        font-weight: inherit;
+        font-style: inherit;
+        box-sizing: border-box;
+      }
+
+      html
+      {
+        width: 100%;
+        height: 100%;
+      }
+
+
+
+    </style>
+  </head>
+
+  <body>
+
+
+    <script>
+
+
+      (function (param)
+      {
+        var util =
+        {
+
+          /**Comprueba si un parametro es positivo.
+           * @param {NUM} param . Recibe valor numerico.
+           * @returns {BLN} Si es positivo devuelve TRUE.
+           */
+          esPositivo: function (param)
+          {
+            return (param > 0);
+          },
+          /**Comprueba si un parametro es negativo.
+           * @param {NUM} param. Recibe valor numerico.
+           * @returns {BLN} Si es negativo devuelve TRUE.
+           */
+          esNegativo: function (param)
+          {
+            return (param < 0);
+          },
+          /**
+           * Comprueba si un parametro es de valor neutro
+           * @param {NUM} - param recibe un valor numerico
+           * @returns {BLN} - Si es 0 devuelve TRUE
+           */
+          esNeutro: function (param)
+          {
+            return (param === 0);
+          }
+
+
+        };
+
+
+
+
+
+        var numero1 = 3;
+        var numero2 = 1;
+
+        console.log(comprobarSuma(0, 0));
+        console.log(comprobarResta(4, 2));
+        console.log(comprobarResultado(suma(numero1, numero2)));
+        console.log(comprobarResultado(resta(5, 6)));
+
+        console.log(suma(numero1, numero2));
+        console.log(resta(numero1, numero2));
+
+        /**
+         * Esta función suma dos numeros
+         * @param {NUM} num1
+         * @param {NUM} num2
+         * @returns {NUM} - Devuelve la suma de dos numeros
+         */
+        function suma(num1, num2)
+        {
+          return (num1 + num2);
+        }
+
+        /**
+         * Esta función resta dos numeros
+         * @param {NUM} num1
+         * @param {NUM} num2
+         * @returns {NUM} - Devuelve la resta de dos numeros
+         */
+        function resta(num1, num2)
+        {
+          return (num1 - num2);
+
+        }
+        /**
+         * Imprime por pantalla si el resultado de la suma es positivo 
+         * o negativo
+         * @param {NUM} num1 numero recibido a procesar
+         * @param {NUM} num2 numero recibido a procesar
+         * 
+         */
+        function comprobarSuma(num1, num2)
+
+        {
+          var resultado = suma(num1, num2);
+          var mensaje = null;
+
+          if (util.esNegativo(resultado))
+          {
+            mensaje = "El resultado es negativo";
+
+          }
+          else if (util.esPositivo(resultado))
+          {
+            mensaje = "El resultado es positivo";
+          }
+          else if (util.esNeutro(resultado))
+          {
+            mensaje = "El resultado es neutro / 0";
+          }
+
+          return mensaje;
+        }
+        /**
+         * Imprime por pantalla si el resultado de la resta es positivo 
+         * o negativo
+         * @param {NUM} num1 numero recibido a procesar
+         * @param {NUM} num2 numero recibido a procesar
+         */
+        function comprobarResta(num1, num2)
+
+        {
+          var resultado = resta(num1, num2);
+          var mensaje = null;
+
+          if (util.esNegativo(resultado))
+          {
+            mensaje = "El resultado es negativo";
+
+          }
+          else if (util.esPositivo(resultado))
+          {
+            mensaje = "El resultado es positivo";
+          }
+          else if (util.esNeutro(resultado))
+          {
+            mensaje = "El resultado es neutro / 0";
+          }
+
+          return mensaje;
+
+        }
+
+        /**
+         * Función que comprueba si un número es positivo o negativo
+         * @param {NUM} resultado Número recibido a procesar
+         * @returns {String} Devuelve un mensaje de si es positivo,
+         *  negativo o neutro
+         */
+        function comprobarResultado(resultado)
+
+        {
+
+          var mensaje = null;
+
+          if (util.esNegativo(resultado))
+          {
+            mensaje = "El resultado es negativo";
+
+          }
+          else if (util.esPositivo(resultado))
+          {
+            mensaje = "El resultado es positivo";
+          }
+          else if (util.esNeutro(resultado))
+          {
+            mensaje = "El resultado es neutro / 0";
+          }
+
+          return mensaje;
+        }
+
+
+
+
+        var cont = 0;
+
+        miBucle(cont);
+        function miBucle(cont)
+        {
+
+          console.log(cont)
+
+          setTimeout(function ()
+          {
+            miBucle(++cont);
+          }, 0);
+        }
+        console.log('Continua el programa ---------------->');
+
+
+
+        var misBolitas = [];
+
+        misBolitas.push(new bola());
+        misBolitas.push(new bola());
+        misBolitas.push(new bola());
+        console.log("\r\n ----->");
+
+        console.log(misBolitas[0].getX());
+        console.log(misBolitas[1].getX());
+        console.log(misBolitas[2].getX());
+
+        for (var i = 0, max = misBolitas.length; i < max; i++)
+        {
+          misBolitas[i].setX(i + 10);
+        }
+
+
+        console.log(misBolitas[0].getX());
+        console.log(misBolitas[1].getX());
+        console.log(misBolitas[2].getX());
+
+        function bola()
+        {
+          //Atributos
+          var x = 0;
+          var y = 0;
+
+          //Metodos
+          this.getX = function ()
+          {
+            return (x);
+          };
+
+          this.setX = function (param)
+          {
+            x = param;
+          };
+
+          this.getY = function ()
+          {
+            return (y);
+          };
+
+          this.setY = function (param)
+          {
+            y = param;
+          };
+        }
+
+
+      })();
+
+
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Ejercicio 4</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>    
+            
+          
+          html
+          {
+            width: 100%;
+            height: 100%;
+            
+          }
+          
+          div{
+              width: 10px;
+              height: 10px;
+              position:absolute;
+              left:50%;
+             
+          }
+          
+          .elem{
+              background: violet;
+              position:absolute;
+              bottom: 0;
+              right:0;
+              
+              
+          }
+          #contenedor{
+              position:fixed;
+              bottom:0;
+              
+              
+          }
+    </style>
+    </head>
+    <body>
+        
+        <div id="contenedor">
+            
+            <div class="elem"></div>
+            <div class="elem"></div>
+            <div class="elem"></div>
+            <div class="elem"></div>
+         
+        </div>
+        
+        
+        <script>
+            
+            (function()
+            {
+                //document hace referencia al documento donde trabajo
+                //Capturamos el div con id 'contenedor'
+               var id = document.querySelector('#contenedor');
+//                
+                //Mete cada div 'elem' en un array
+                var clase=document.querySelectorAll('.elem'); //con All captura todas las clases 'elem'
+                //
+                //Tambien se puede hacer así "buscame dentro del contenedor el hijo div directo
+                //var clase=document.querySelectorAll('#contenedor > div'); 
+                
+                console.log(id);
+                console.log(clase);
+                
+                //modificamos el id dinámicamente
+//                id.style.bottom="0px";
+//                id.style.left="50px";
+                
+                //Definimos variables
+                var bottom=0;
+                var left=0;
+                var arrayColor=['blue','green','yellow','red']; 
+                var color=0;
+                var height=10;
+                var width=10; 
+               
+                       
+                //Bucle para modificar las propiedades del id 'contenedor'
+                setInterval(function()
+                {
+                    
+                  //console.log("intervalo");  
+                 //id.style.bottom=bottom++ +'px'; //Aumentamos los pixeles de bottom para k el cuadro vaya subiendo 
+//                  id.style.left=left++ +'px'; //Aumentamos los pixeles de left para k el cuadro vaya subiendo 
+//                 
+               
+                for (var i = 0, max = clase.length; i < max; i++) 
+                {
+                        left+=(i*10);
+                       
+                        if((i)%2===0)
+                        {
+                            left *=(-1);
+                        }
+                        
+                       bottom+=Math.random(0,clase.length)*20;
+                       if(bottom>=window.innerHeight/2){ //Cuando el objeto llegue a la mitad de la pantalla haz ....
+                          
+                            clase[i].style.borderRadius='100%';
+                            //Cambio de color
+                            color=Math.round(Math.random(0,arrayColor.length));
+                            clase[i].style.background=arrayColor[color]; 
+                            //Cambio de tamaño
+                            
+                           for (var b = 20, max = 100; b < max; b++)
+                           {
+    
+                                clase[i].style.height+=b +'px';
+                                clase[i].style.width+=b +'px';  
+    
+                                }
+                                
+                           
+                            
+                          
+                       }
+                      
+                          
+                            
+                                
+            
+                       clase[i].style.bottom=bottom +'px';
+                        
+                       clase[i].style.left=left +'px';
+                        
+                }
+                
+                },700); //velocidad del bucle
+                
+                
+            })();
+            
+            
+            
+            
+        </script>
+    </body>
+</html>

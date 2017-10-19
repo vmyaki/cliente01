@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Dulces</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        
+        <script>
+            
+            (function()
+            {
+                
+                        
+        
+                            var petisu=
+                                    {
+                                        nombre:"petisu",
+                                        harina:"500gr",
+                                        huevos:2,
+                                        herramientas:['bol','pala','batidora']
+
+                                    };
+                            var donut=
+                                    {
+                                        nombre:"donuts",
+                                        harina:"300gr",
+                                        huevos:1,
+                                        herramientas:['bol','pala','batidora']
+                                     };
+                        
+                        var arrayDulces=[petisu,donut];
+                        for (var i = 0, max = arrayDulces.length; i < max; i++) 
+                        {
+                            
+                                console.log(i + "Nombre:"+arrayDulces[i].nombre);
+                                console.log("Harina:"+arrayDulces[i].harina);
+                                console.log("Huevos:"+arrayDulces[i].huevos);
+                                for (var a = 0, max2 = arrayDulces[i].herramientas.length; a < max2; a++) 
+                                {
+                                     console.log("Herramientas:"+arrayDulces[i].herramientas[a]);
+       
+                                }
+                                                                
+                        }
+
+               
+        
+            })();
+            
+            
+            
+            
+            
+            
+        </script>
+        
+    </body>
+</html>

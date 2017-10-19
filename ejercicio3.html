@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Pruebas JS</title>
+
+        <style>
+
+
+        </style>
+    </head>
+    <body>
+
+        <script>
+       
+          (function()
+            {
+                var util=
+                {
+                   /**
+                    * 
+                    * @param {type} param - recibe un numero o cadena
+                    * @returns {Boolean} - devuelve si es true o false comprobando si no es nulo 
+                    */
+                    isNotNull:function(param)
+                    {
+               
+                    return (param !== null); //3 iguales compruebo si es identico .Devuelve true o false
+                     },
+                  
+                  /**
+                   * @param {type} param - recibe un numero o cadena
+                   *  @returns {Boolean} - devuelve si es true o false comprobando si es indefinido o no
+                   */
+                  isNotUndefined:function(param)
+                  {
+                      return (param !== undefined);
+                  },
+                  
+                  /**
+                   * 
+                   * @param {type} param - recibe un numero, cadena o boleano
+                   * @returns {unresolved} - devuelve el tipo de variable pasada
+                   */
+                  checkType:function(param)
+                  {
+                      return ({}).toString.call(param).match(/\s([a-z|A-Z]+)/)[1].toLowerCase();
+                  },
+
+
+                  /**
+                   * 
+                   * @param {type} param - recibe una cadena
+                   * @returns {unresolved} - devuelve la longitud de la cadena recibida
+                   */
+                   countLength:function(param)
+                   {
+                       return (param.toString().length);
+                       
+                   },
+                   
+                   /**
+                    * 
+                    * @param {type} param - recibe un numero negativo o positivo
+                    * @returns {Boolean} - devuelve un true si es negativo y si no lo es un false
+                    */
+                   isNegative:function(param)
+                   {
+                       return ((param<0));
+                   },
+                   
+                   /**
+                    * 
+                    * @param {type} param- recibe un numero entero o negativo
+                    * @returns {Boolean} - devuelve un true si es decimal sino lo es devuelve un false
+                    */
+                   isDecimal:function(param)
+                   {
+                       return(param %1!==0);
+                   },
+//                   
+//                    isPrimo:function(param)
+//                    {
+//                        
+//                    }
+                   
+                   /**
+                    * 
+                    * @param {type} param -recibe un numero entero
+                    * @returns {Boolean}- devuelve un true si el número es par sino devuelve un false
+                    */
+                   isPar:function(param)
+                   {
+                       return ((param%2===0));
+                   },
+                   
+                   /**
+                    * 
+                    * @param {type} param - recibe un número entero
+                    * @returns {Boolean} - devuelve un true si el número es impar sino devuelve un false
+                    */
+                   
+                   isImpar:function(param)
+                   {
+                       return ((param%2===1));
+                   },
+                   
+                   /**
+                    * 
+                    * @param {type} param - recibe un número entero
+                    * @returns {Boolean} - devuelve un true si es número primo sino devuelve un false
+                    */
+                   
+                   isPrimo:function(param)
+                   {
+                     var boolean=true;
+                     for(var i=2;i<param;i++)
+                        {
+                            if(param%i===0)
+                            {
+                                boolean=false;
+                            }
+                        }
+                     return boolean;
+                   }
+
+                   
+                  };
+                 //Comprobaciones
+//                 console.log(util.isNotNull( ));
+//                 console.log(util.checkType("hola"));
+//                 console.log(util.countLength(23));
+//                 console.log(util.isNegative(-1));
+//                 console.log(util.isDecimal(1.1));
+//                 console.log(util.isPar(1));
+//                 console.log(util.isImpar(2));
+//                 console.log(util.isPrimo(4));
+               
+            //Declaro variables   
+            var numero1=1;
+            var numero2=2;
+            var tipo=2;
+            var contar="hola";
+            var negativo=-1;
+            var decimal=1;
+            var par=2;
+            var impar=5;
+            var primo=3;
+            
+            //Llamo a la función pasándole los parámetros solicitados
+            sumarNumero(numero1,numero2);
+            comprobarTipo(tipo);
+            contarContenido(contar);
+            checkNegativo(negativo);
+            checkDecimal(decimal);
+            checkPar(par);
+            checkImpar(impar);
+            checkPrimo(primo);
+            
+            
+            function sumarNumero(a,b)
+            {
+                if (util.isNotNull(a) && util.isNotUndefined(b))
+                {
+                     console.log(a + b);
+                }
+                else
+                {
+                     console.log("No se pudo operar");
+                }
+               
+            }
+           
+            function comprobarTipo(parametro)
+            {
+                console.log("El tipo de la variable es"+" "+util.checkType(parametro));
+            }
+    
+            function contarContenido(parametro)
+            {
+                console.log("La variable tiene de longitud" +" "+ util.countLength(parametro));
+            }
+            
+            function checkNegativo(parametro)
+            {
+                if(util.isNegative(parametro))
+                {
+                     console.log("El número "+parametro +" es negativo");
+                }
+                else
+                {
+                    console.log("El número "+parametro +" no es negativo");
+                }
+               
+            }
+            
+            function checkDecimal(parametro)
+            {
+                if (util.isDecimal(parametro))
+                {
+                    console.log("El número "+parametro +" es decimal");
+                }
+                else
+                {
+                    console.log("El número "+parametro +" no es decimal");
+                }
+            }
+            
+            function checkPar(parametro)
+            {
+                if(util.isPar(parametro))
+                {
+                    console.log("El número "+parametro +" es par");
+                }
+                else
+                {
+                    console.log("El número "+parametro +" no es par");
+                }
+            }
+            
+            function checkImpar(parametro)
+            {
+                if(util.isImpar(parametro))
+                {
+                     console.log("El número "+parametro +" es impar");
+                }
+                else
+                {
+                     console.log("El número "+parametro +" no es impar");
+                }
+            }
+            
+            function checkPrimo(parametro)
+            {
+                if(util.isPrimo(parametro))
+                {
+                    console.log("El número "+parametro +" es primo");
+                }
+                else
+                {
+                    console.log("El número "+parametro +" no es impar");
+                }
+            }
+            
+            
+            
+            
+            
+            
+            
+            })();
+            
+
+
+
+
+        </script>    
+    </body>
+</html>

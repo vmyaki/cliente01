@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Pruebas JS</title>
+        
+        <style>
+            
+           
+        </style>
+    </head>
+    <body>
+        
+        
+        
+        <script>
+            
+            /**
+             * 
+             * ATRIBUTOS
+             */
+            var miVariable="Hola mundo";
+            var numero=1;
+            
+            /**
+             * 
+             * MÉTODOS
+             */
+            function sumarNumero(a,b)
+            {
+                return (a+b);
+            }
+            
+            console.log(sumarNumero(numero,numero));
+            
+            
+            //Función
+            (function()
+            {
+                var json=
+                        {
+                            alumna:"vero"
+                        };
+       
+                function x (a,b)
+                {
+                    console.log(a.alumna); //El parametro 'a' coge el valor del atributo alumno de json
+                }
+            
+                 x(json); //Paso a la funcion lo que vale la variable json
+             })();
+            
+            
+            
+            
+        </script>    
+    </body>
+</html>
